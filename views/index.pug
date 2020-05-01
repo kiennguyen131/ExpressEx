@@ -2,4 +2,8 @@ h1 toDoList
 a(href="/create") New
 ul
 	each toDo in toDoList
-		li= toDo
+		li
+			span= toDo.name
+			span &nbsp;
+			a(href="/toDoList/" + toDo.id) View
+			span &nbsp;
