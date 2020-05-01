@@ -34,17 +34,23 @@ app.get("/create", function(req, res) {
   res.render("create");
 });
 
-app.get('/toDoList/:id', function(req, res) {
-	var id =req.params.id;
+// app.get('/todos/:id', function(req, res) {
+// 	var id =req.params.id;
 
-	var toDo = db.get('toDoList').find({id: id}).value();
+// 	var toDo = db.get('toDoList').find({id: id}).value();
 
-	res.render('view', {
-		toDo: toDo
-	});
-});
+// 	res.render('view', {
+// 		toDo: toDo
+// 	});
+// });
+// demo nut view
 
 
+app.get('/todos/:id/delete', function (req, res) {
+  let id = req.params.id;
+  db.get('toDoList').remove({ id: id }).write();
+  res.redirect('/todos');
+})
 
 app.post("/views/create", function(req, res) {
 	req.body.id = shortid.generate();

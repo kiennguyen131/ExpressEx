@@ -4,6 +4,8 @@ ul
 	each toDo in toDoList
 		li
 			span= toDo.name
-			span &nbsp;
-			a(href="/toDoList/" + toDo.id) View
-			span &nbsp;
+			//- span &nbsp;
+			//- a(href="/todos/" + toDo.id) View
+			span &nbsp
+			a(href="/todos/"+toDo.id+"/delete" label="delete") Xoa
+			
